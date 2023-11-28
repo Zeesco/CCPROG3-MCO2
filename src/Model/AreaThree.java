@@ -10,7 +10,8 @@ public class AreaThree extends AreaOne{
     public AreaThree(int horizontal,int vertical) {
         super(horizontal);
         this.vertical = vertical;
-        this.maximumStepsVertical = 5;
+        this.maximumStepsVertical = 0;
+        this.horizontal = horizontal;
         
     }
 
@@ -75,31 +76,61 @@ public class AreaThree extends AreaOne{
 
 
 
-public void moveUp(){
-    if(maximumStepsVertical > 5){
-    maximumStepsVertical++;
-    vertical-=100;
-    }else{
-        System.out.println("Cant move up");
+@Override
+    public void moveRight(){
+        if(maxStepsHorizontal <3){
+        maxStepsHorizontal++;
+        horizontal+=80; 
+        }else{
+            System.out.println("CANT GO RIGHT");
+        }
+        
+        
     }
-}
 
-public void moveDown(){
-    if(maximumStepsVertical > 1){
-        maximumStepsVertical--;
-        vertical+=100;
-    }else{
-        System.out.println("Cant move down");
+    @Override
+    public void moveLeft(){
+        
+        if(maxStepsHorizontal>=1){
+            maxStepsHorizontal--;
+           horizontal-=80; 
+        }else{
+            System.out.println("CANT GO LEFT"+maxStepsHorizontal);
+        }
     }
-}
+
+
+    public void moveUp() {
+        System.out.println("steps vertical" + getMaximumStepsVertical());
+        if (maximumStepsVertical >0) {
+            maximumStepsVertical--;
+            vertical -= 60;
+        } else {
+            System.out.println("Cant move up");
+        }
+    }
+    
+    public void moveDown() {
+        System.out.println("steps vertical" + getMaximumStepsVertical());
+        if (maximumStepsVertical < 3) {
+            maximumStepsVertical++;
+            vertical += 60;
+        } else {
+            System.out.println("Cant move down");
+        }
+    }
     
 
     public void resetVertical(){
-        this.vertical = 100;
+        this.vertical = 40;
+    }
+
+    public void resetHorizontal(){
+        this.horizontal = 110;
     }
 
     public void resetVerticalSteps(){
-        this.maximumStepsVertical = 5;
+        this.maximumStepsVertical = 0;
     }   
     
 

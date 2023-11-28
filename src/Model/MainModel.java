@@ -12,9 +12,9 @@ public class MainModel {
 
     public MainModel(){
         this.player = new Player();
-        this.areaOne = new AreaOne(100);
-        this.areaTwo = new AreaTwo(100, 100);
-        this.areaThree = new AreaThree(100, 100);
+        this.areaOne = new AreaOne(110);
+        this.areaTwo = new AreaTwo(150, 50);
+        this.areaThree = new AreaThree(110, 40);
     
         
     }

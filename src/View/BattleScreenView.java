@@ -50,6 +50,8 @@ public class BattleScreenView extends ExploreAnAreaView {
 
     public void setEnemyPokemon(Creature enemyCreature) {
         
-        enemyPokemon.setText("Name: "+ enemyCreature.getName()+"\n"+"Health"+ enemyCreature.getHealth());
+       
     }
+
+
 }

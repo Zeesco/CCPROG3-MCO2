@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class ChoosingPokemon extends ChoosingType {
+public class ChoosingPokemon extends JFrame {
 
     private  JButton b1_Pokemon;
     private JButton b2_Pokemon;
@@ -35,9 +35,9 @@ public class ChoosingPokemon extends ChoosingType {
 
         
 
-        p1_PokemonIcon = new ImageIcon("/Users/yuanbutiong/Desktop/MCO2/src/View/BackgroundInterfaces/3.png");
-        p2_PokemonIcon = new ImageIcon("/Users/yuanbutiong/Desktop/MCO2/src/View/BackgroundInterfaces/4.png");
-        p3_PokemonIcon = new ImageIcon();
+        p1_PokemonIcon = new ImageIcon("src/images/3.png");
+        p2_PokemonIcon = new ImageIcon("src/images/4.png");
+        p3_PokemonIcon = new ImageIcon("src/images/leaf pokemons.png");
 
         
 
@@ -94,6 +94,12 @@ public class ChoosingPokemon extends ChoosingType {
         this.b1_Pokemon.setText("BROWNISAUR");
         this.b2_Pokemon.setText("FRUBAT");
         this.b3_Pokemon.setText("MALTS");
+        this.p1_LabelPicture.setIcon(p3_PokemonIcon);
+
+        b1_Pokemon.setBounds(190, 475,100, 25);
+        b2_Pokemon.setBounds(350, 475, 100, 25);
+        b3_Pokemon.setBounds(510, 475, 100, 25);
+       
 
         
         

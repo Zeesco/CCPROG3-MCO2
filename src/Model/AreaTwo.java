@@ -6,10 +6,12 @@ public class AreaTwo extends AreaOne{
     
     private int vertical;
     private int maximumStepsVertical;
+
     public AreaTwo(int horizontal,int vertical) {
         super(horizontal);
         this.vertical = vertical;
-        this.maximumStepsVertical = 5;
+        this.maximumStepsVertical =0;
+        this.horizontal = horizontal;
     }
 
 
@@ -66,13 +68,35 @@ public class AreaTwo extends AreaOne{
         }
     }
     }
+    @Override
+    public void moveRight(){
+        if(maxStepsHorizontal <2){
+        maxStepsHorizontal++;
+        horizontal+=100; 
+        }else{
+            System.out.println("CANT GO RIGHT");
+        }
+        
+        
+    }
+
+    @Override
+    public void moveLeft(){
+        
+        if(maxStepsHorizontal>=1){
+            maxStepsHorizontal--;
+           horizontal-=100; 
+        }else{
+            System.out.println("CANT GO LEFT"+maxStepsHorizontal);
+        }
+    }
 
 
     public void moveUp() {
         System.out.println("steps vertical" + getMaximumStepsVertical());
-        if (maximumStepsVertical > 1) {
+        if (maximumStepsVertical >0) {
             maximumStepsVertical--;
-            vertical -= 100;
+            vertical -= 90;
         } else {
             System.out.println("Cant move up");
         }
@@ -80,16 +104,16 @@ public class AreaTwo extends AreaOne{
     
     public void moveDown() {
         System.out.println("steps vertical" + getMaximumStepsVertical());
-        if (maximumStepsVertical < 5) {
+        if (maximumStepsVertical < 2) {
             maximumStepsVertical++;
-            vertical += 100;
+            vertical += 90;
         } else {
             System.out.println("Cant move down");
         }
     }
 
     public void resetVerticalSteps(){
-        this.maximumStepsVertical = 5;
+        this.maximumStepsVertical = 0;
     }   
 
     public int getMaximumStepsVertical() {
@@ -101,7 +125,11 @@ public class AreaTwo extends AreaOne{
     }
 
     public void resetVertical(){
-        this.vertical = 100;
+        this.vertical = 50;
+    }
+
+    public void resetHorizontal(){
+        horizontal = 150;
     }
 
    

@@ -38,10 +38,12 @@ public class ChosenCreatureController implements PanelBehavior {
     private  void setActiveCreatureButton(String name){
         GenerateLevelOneCreature creature = new GenerateLevelOneCreature(name);
         Creature generatedCreature = creature.findCreature();
+      
 
         if (generatedCreature != null) {
             model.getPlayer().getInventory().setActiveCreature(generatedCreature);
             model.getPlayer().getInventory().addCreatureInInventory(generatedCreature);
+            
             
          } 
     }

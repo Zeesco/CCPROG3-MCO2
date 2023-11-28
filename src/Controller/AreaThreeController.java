@@ -14,38 +14,50 @@ public class AreaThreeController implements BackToMainMenu{
         this.model = model;
         
         view.getAreaThreeView().setActionListenerDown(e ->{
-         moveDown();
-
-         if(model.getAreaThree().youHaveEncounteredACreature()){
-            view.getBattleScreenView().setEnemyPokemon(model.getAreaThree().encounterEnemyCreature());
-         }
-            
-        });
-        view.getAreaThreeView().setActionListenerUp(e ->{
-
-         moveUp();
-          if(model.getAreaThree().youHaveEncounteredACreature()){
-            view.getBattleScreenView().setEnemyPokemon(model.getAreaThree().encounterEnemyCreature());
-         }
-            
-        });
-        
-        view.getAreaThreeView().setActionListenerRight(e ->{
-
-         moveRight();
-          if(model.getAreaThree().youHaveEncounteredACreature()){
-            view.getBattleScreenView().setEnemyPokemon(model.getAreaThree().encounterEnemyCreature());
-         }
+            moveDown();
+   
+            if( model.getAreaThree().getMaximumStepsVertical() > 0 && model.getAreaThree().getMaximumStepsVertical() < 3){
+            if(model.getAreaThree().youHaveEncounteredACreature()){
+               view.getBattleScreenView().setEnemyPokemon(model.getAreaThree().encounterEnemyCreature());
+               openBattlePhase();
+            }
+           }
+               
+           });
+           view.getAreaThreeView().setActionListenerUp(e ->{
+   
+            moveUp();
+       
+            if(model.getAreaThree().getMaximumStepsVertical() > 0 && model.getAreaThree().getMaximumStepsVertical() < 3  ){
+            if(model.getAreaThree().youHaveEncounteredACreature()){
+               view.getBattleScreenView().setEnemyPokemon(model.getAreaThree().encounterEnemyCreature());
+               openBattlePhase();
+            }
+           }
+               
+           });
            
-        });
-        view.getAreaThreeView().setActionListenerLeft(e ->{
-
-         moveLeft();
-          if(model.getAreaThree().youHaveEncounteredACreature()){
-            view.getBattleScreenView().setEnemyPokemon(model.getAreaThree().encounterEnemyCreature());
-         }
-            
-        });
+           view.getAreaThreeView().setActionListenerRight(e -> {
+               moveRight();
+   
+               if (model.getAreaThree().getMaximumStepsHorizontal() >=1 && model.getAreaThree().getMaximumStepsHorizontal() < 3) {
+                   if (model.getAreaThree().youHaveEncounteredACreature()) {
+                       view.getBattleScreenView().setEnemyPokemon(model.getAreaThree().encounterEnemyCreature());
+                       openBattlePhase();
+                   }
+               }
+           });
+   
+           view.getAreaThreeView().setActionListenerLeft(e -> {
+               moveLeft();
+   
+               if (model.getAreaThree().getMaximumStepsHorizontal() >=1 && model.getAreaThree().getMaximumStepsHorizontal() < 3) {
+                   if (model.getAreaThree().youHaveEncounteredACreature()) {
+                       view.getBattleScreenView().setEnemyPokemon(model.getAreaThree().encounterEnemyCreature());
+                       openBattlePhase();
+                   }
+               }
+           });
         
       
         view.getAreaThreeView().setActionListenerExit(e -> {
@@ -53,9 +65,9 @@ public class AreaThreeController implements BackToMainMenu{
             closePanel();
             model.getAreaThree().resetHorizontal();
             model.getAreaThree().resetVertical();
-            model.getAreaTwo().resetSteps();
-            model.getAreaTwo().resetVerticalSteps();
-            view.getAreaTwoView().setBoundsPlayer(50, 50);
+            model.getAreaThree().resetSteps();
+            model.getAreaThree().resetVerticalSteps();
+            view.getAreaThreeView().setBoundsPlayer(110, 40);
 
          });
         
@@ -79,23 +91,23 @@ public class AreaThreeController implements BackToMainMenu{
     }
 
     public void moveRight() {
-        model.getAreaTwo().moveRight();
-        view.getAreaThreeView().setBoundsPlayer(model.getAreaTwo().getHorizontal(),model.getAreaTwo().getVertical());
+        model.getAreaThree().moveRight();
+        view.getAreaThreeView().setBoundsPlayer(model.getAreaThree().getHorizontal(),model.getAreaThree().getVertical());
     }
 
     public void moveLeft() {
-       model.getAreaTwo().moveLeft();
-        view.getAreaThreeView().setBoundsPlayer(model.getAreaTwo().getHorizontal(),model.getAreaTwo().getVertical());
+       model.getAreaThree().moveLeft();
+        view.getAreaThreeView().setBoundsPlayer(model.getAreaThree().getHorizontal(),model.getAreaThree().getVertical());
     }
 
     public void moveUp() {
-        model.getAreaTwo().moveUp();
-        view.getAreaThreeView().setBoundsPlayer(model.getAreaTwo().getHorizontal(),model.getAreaTwo().getVertical());
+        model.getAreaThree().moveUp();
+        view.getAreaThreeView().setBoundsPlayer(model.getAreaThree().getHorizontal(),model.getAreaThree().getVertical());
     }
 
     public void moveDown() {
-        model.getAreaTwo().moveDown();
-        view.getAreaThreeView().setBoundsPlayer(model.getAreaTwo().getHorizontal(),model.getAreaTwo().getVertical());
+        model.getAreaThree().moveDown();
+        view.getAreaThreeView().setBoundsPlayer(model.getAreaThree().getHorizontal(),model.getAreaThree().getVertical());
     }
 
     @Override

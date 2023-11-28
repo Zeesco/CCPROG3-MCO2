@@ -18,7 +18,7 @@ public class AreaOneController implements BackToMainMenu {
         view.getAreaOneView().setActionListenerRight(e ->{
 
          moveRight();
-            if(model.getAreaOne().getMaximumStepsHorizontal()<5 && model.getAreaOne().getMaximumStepsHorizontal()>1){
+            if(model.getAreaOne().getMaximumStepsHorizontal()<4 && model.getAreaOne().getMaximumStepsHorizontal()>=1){
                 if(model.getAreaOne().youHaveEncounteredACreature()){
                  closePanel();
                  openBattlePhase();
@@ -29,7 +29,7 @@ public class AreaOneController implements BackToMainMenu {
         view.getAreaOneView().setActionListenerLeft(e ->{
 
          moveLeft();
-            if(model.getAreaOne().getMaximumStepsHorizontal()<5 && model.getAreaOne().getMaximumStepsHorizontal()>1){
+            if(model.getAreaOne().getMaximumStepsHorizontal()<4 && model.getAreaOne().getMaximumStepsHorizontal()>=1){
                 if(model.getAreaOne().youHaveEncounteredACreature()){
                  closePanel();
                  openBattlePhase();
@@ -44,7 +44,7 @@ public class AreaOneController implements BackToMainMenu {
             model.getAreaOne().resetHorizontal();
             model.getAreaOne().resetSteps();
             
-            view.getAreaOneView().setBoundsPlayer(50);
+            view.getAreaOneView().setBoundsPlayer(110);
 
          });
     }

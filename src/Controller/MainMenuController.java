@@ -15,6 +15,7 @@ public class MainMenuController  {
         view.getMainMenu().setActionListenerInventory(e->{
             openInventory();
             view.getInventoryView().caughtCreatures(model.getPlayer().getInventory().getCreaturesList());
+            view.getInventoryView().setActiveCreatureImage(model.getPlayer().getActiveCreature().getName());
         });
         
         view.getMainMenu().setActionListenerInventory(e->closePanel());

@@ -15,6 +15,7 @@ public class View extends JFrame{
     private final AreaThreeView areaThreeView;
     private final AreaView areaView;
     private final BattleScreenView battleScreenView;
+    private final GenerateImageCreature generateImageCreature;
     
     
     public  View(){
@@ -30,6 +31,7 @@ public class View extends JFrame{
         this.areaTwoView = new AreaTwoView();
         this.areaThreeView = new AreaThreeView();
         this.areaView = new AreaView();
+        this.generateImageCreature = new GenerateImageCreature();
         
         
     }
@@ -80,6 +82,9 @@ public class View extends JFrame{
    
    public BattleScreenView getBattleScreenView() {
        return battleScreenView;
+   }
+   public GenerateImageCreature getGenerateImageCreature() {
+       return generateImageCreature;
    }
     
 }

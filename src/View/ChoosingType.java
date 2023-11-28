@@ -21,7 +21,7 @@ public class ChoosingType extends JFrame {
 
     
     public ChoosingType(){
-        image = new ImageIcon("/Users/yuanbutiong/Desktop/MCO2/src/View/BackgroundInterfaces/ChooseType.png");
+        image = new ImageIcon("src/images/ChooseType.png");
         JLabel chooseType = new JLabel(image);
         chooseType.setBounds(1, -20, 800, 600);
        

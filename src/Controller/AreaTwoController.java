@@ -18,7 +18,7 @@ public class AreaTwoController implements BackToMainMenu {
         view.getAreaTwoView().setActionListenerDown(e ->{
          moveDown();
 
-         if(model.getAreaTwo().getMaximumStepsHorizontal() > 5 && model.getAreaTwo().getMaximumStepsHorizontal() < 1 && model.getAreaTwo().getMaximumStepsVertical() > 5 && model.getAreaTwo().getMaximumStepsVertical() < 1 ){
+         if( model.getAreaTwo().getMaximumStepsVertical() > 0 && model.getAreaTwo().getMaximumStepsVertical() < 2 ){
          if(model.getAreaTwo().youHaveEncounteredACreature()){
             view.getBattleScreenView().setEnemyPokemon(model.getAreaTwo().encounterEnemyCreature());
             openBattlePhase();
@@ -30,7 +30,7 @@ public class AreaTwoController implements BackToMainMenu {
 
          moveUp();
     
-         if(model.getAreaTwo().getMaximumStepsHorizontal() > 5 && model.getAreaTwo().getMaximumStepsHorizontal() < 1 && model.getAreaTwo().getMaximumStepsVertical() > 5 && model.getAreaTwo().getMaximumStepsVertical() < 1  ){
+         if(model.getAreaTwo().getMaximumStepsVertical() > 0 && model.getAreaTwo().getMaximumStepsVertical() < 2  ){
          if(model.getAreaTwo().youHaveEncounteredACreature()){
             view.getBattleScreenView().setEnemyPokemon(model.getAreaTwo().encounterEnemyCreature());
             openBattlePhase();
@@ -39,26 +39,26 @@ public class AreaTwoController implements BackToMainMenu {
             
         });
         
-        view.getAreaTwoView().setActionListenerRight(e ->{
+        view.getAreaTwoView().setActionListenerRight(e -> {
+            moveRight();
 
-         if(model.getAreaTwo().getMaximumStepsHorizontal() > 5 && model.getAreaTwo().getMaximumStepsHorizontal() < 1 && model.getAreaTwo().getMaximumStepsVertical() > 5 && model.getAreaTwo().getMaximumStepsVertical() < 1  ){
-         if(model.getAreaTwo().youHaveEncounteredACreature()){
-            view.getBattleScreenView().setEnemyPokemon(model.getAreaTwo().encounterEnemyCreature());
-            openBattlePhase();
-         }
-        }
-            
+            if (model.getAreaTwo().getMaximumStepsHorizontal() > 0 && model.getAreaTwo().getMaximumStepsHorizontal() < 2) {
+                if (model.getAreaTwo().youHaveEncounteredACreature()) {
+                    view.getBattleScreenView().setEnemyPokemon(model.getAreaTwo().encounterEnemyCreature());
+                    openBattlePhase();
+                }
+            }
         });
-        view.getAreaTwoView().setActionListenerLeft(e ->{
 
-         moveLeft();
-         if(model.getAreaTwo().getMaximumStepsHorizontal() > 5 && model.getAreaTwo().getMaximumStepsHorizontal() < 1 && model.getAreaTwo().getMaximumStepsVertical() > 5 && model.getAreaTwo().getMaximumStepsVertical() < 1  ){
-         if(model.getAreaTwo().youHaveEncounteredACreature()){
-            view.getBattleScreenView().setEnemyPokemon(model.getAreaTwo().encounterEnemyCreature());
-            openBattlePhase();
-         }
-        }
-           
+        view.getAreaTwoView().setActionListenerLeft(e -> {
+            moveLeft();
+
+            if (model.getAreaTwo().getMaximumStepsHorizontal() > 0 && model.getAreaTwo().getMaximumStepsHorizontal() < 2) {
+                if (model.getAreaTwo().youHaveEncounteredACreature()) {
+                    view.getBattleScreenView().setEnemyPokemon(model.getAreaTwo().encounterEnemyCreature());
+                    openBattlePhase();
+                }
+            }
         });
         
       
@@ -69,7 +69,7 @@ public class AreaTwoController implements BackToMainMenu {
             model.getAreaTwo().resetVertical();
             model.getAreaTwo().resetSteps();
             model.getAreaTwo().resetVerticalSteps();
-            view.getAreaTwoView().setBoundsPlayer(100, 100);
+            view.getAreaTwoView().setBoundsPlayer(150, 50);
 
          });
     }

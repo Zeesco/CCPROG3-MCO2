@@ -4,8 +4,8 @@ import java.util.Random;
 
 public  class AreaOne {
 
-    private int horizontal;
-    private int maxStepsHorizontal;
+    protected int horizontal;
+    protected int maxStepsHorizontal;
    
 
     public AreaOne (int horizontal){
@@ -53,9 +53,9 @@ public  class AreaOne {
 
 
     public void moveRight(){
-        if(maxStepsHorizontal <5){
+        if(maxStepsHorizontal <4){
         maxStepsHorizontal++;
-        horizontal+=100; 
+        horizontal+=50; 
         }else{
             System.out.println("CANT GO RIGHT");
         }
@@ -64,11 +64,11 @@ public  class AreaOne {
     }
     public void moveLeft(){
         
-        if(maxStepsHorizontal>1){
+        if(maxStepsHorizontal>=1){
             maxStepsHorizontal--;
-           horizontal+=100; 
+           horizontal-=50; 
         }else{
-            System.out.println("CANT GO LEFT");
+            System.out.println("CANT GO LEFT"+maxStepsHorizontal);
         }
     }
 
@@ -77,7 +77,7 @@ public  class AreaOne {
     }
 
     public void resetHorizontal() {
-        this.horizontal = 100;
+        this.horizontal = 110;
     }
 
     public void resetSteps(){

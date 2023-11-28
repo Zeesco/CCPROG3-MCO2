@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.Random;
+
 public class Player {
     private final Inventory inventory;
    
@@ -14,6 +16,10 @@ public class Player {
     
     public Creature getActiveCreature(){
         return inventory.getActiveCreature();
+    }
+
+    public void catchCreature(Creature creature){
+        getInventory().addCreatureInInventory(creature);
     }
     
     
