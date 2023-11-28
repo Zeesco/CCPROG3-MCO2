@@ -1,6 +1,6 @@
 package Controller;
 
-import java.util.Random;
+
 
 import Model.MainModel;
 import View.View;
@@ -8,39 +8,41 @@ import View.View;
 public class AreaOneController implements BackToMainMenu {
     private final View view;
     private final MainModel model;
-    private int horizontal;
+  
    
 
     public AreaOneController(View view, MainModel model) {
         this.view = view;
         this.model = model;
-        this.horizontal = 100;
 
         view.getAreaOneView().setActionListenerRight(e ->{
 
          moveRight();
-            Random random = new Random();
-            if(random.nextInt(1,100) <=40){
-                closePanel();
-                openBattlePhase();
-                view.getBattleScreenView().setEnemyPokemon();
+            if(model.getAreaOne().getMaximumStepsHorizontal()<5 && model.getAreaOne().getMaximumStepsHorizontal()>1){
+                if(model.getAreaOne().youHaveEncounteredACreature()){
+                 closePanel();
+                 openBattlePhase();
+                 view.getBattleScreenView().setEnemyPokemon(model.getAreaOne().encounterEnemyCreature());
+             }
             }
         });
         view.getAreaOneView().setActionListenerLeft(e ->{
 
          moveLeft();
-            Random random = new Random();
-            if(random.nextInt(1,100) <=40){
-                closePanel();
-                openBattlePhase();
-                view.getBattleScreenView().setEnemyPokemon();
+            if(model.getAreaOne().getMaximumStepsHorizontal()<5 && model.getAreaOne().getMaximumStepsHorizontal()>1){
+            //     if(model.getAreaOne().youHaveEncounteredACreature()){
+            //      closePanel();
+            //      openBattlePhase();
+            //      view.getBattleScreenView().setEnemyPokemon(model.getAreaOne().encounterEnemyCreature());
+            //  }
             }
         });
         
         view.getAreaOneView().setActionListenerExit(e -> {
             openMainMenu();
             closePanel();
-            horizontal = 50;
+            model.getAreaOne().resetHorizontal();
+            model.getAreaOne().resetSteps();
             view.getAreaOneView().setBoundsPlayer(50);
 
          });
@@ -53,13 +55,13 @@ public class AreaOneController implements BackToMainMenu {
     
 
     public void moveRight() {
-        this.horizontal+=100;
-        view.getAreaOneView().setBoundsPlayer(horizontal);
+        model.getAreaOne().moveRight();
+        view.getAreaOneView().setBoundsPlayer(model.getAreaOne().getHorizontal());
     }
 
     public void moveLeft(){
-        this.horizontal-=100;
-        view.getAreaOneView().setBoundsPlayer(horizontal);
+        model.getAreaOne().moveLeft();
+        view.getAreaOneView().setBoundsPlayer(model.getAreaOne().getHorizontal());
     }
 
     @Override

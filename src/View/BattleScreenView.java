@@ -2,9 +2,8 @@ package View;
 
 import javax.swing.*;
 
-import Model.GenerateLevelOneCreature;
+import Model.Creature;
 
-import java.awt.*;
 
 public class BattleScreenView extends ExploreAnAreaView {
     private JButton attackButton;
@@ -49,8 +48,8 @@ public class BattleScreenView extends ExploreAnAreaView {
     }
     
 
-    public void setEnemyPokemon() {
-        GenerateLevelOneCreature one = new GenerateLevelOneCreature("STRAWANDER");
-        enemyPokemon.setText(one.getName());
+    public void setEnemyPokemon(Creature enemyCreature) {
+        
+        enemyPokemon.setText("Name: "+ enemyCreature.getName()+"\n"+"Health"+ enemyCreature.getHealth());
     }
 }

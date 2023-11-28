@@ -8,6 +8,7 @@ public class GenerateLevelOneCreature extends Creature implements GenerateCreatu
     }
 
 
+
   
 
 
@@ -45,6 +46,12 @@ public class GenerateLevelOneCreature extends Creature implements GenerateCreatu
             return null;
         }
     }
+
+
+    
+
+
+
 
    
 }

@@ -2,7 +2,9 @@ package Model;
 
 public class Player {
     private final Inventory inventory;
+   
     public Player(){
+        
         this.inventory = new Inventory();
     }
 
@@ -13,6 +15,10 @@ public class Player {
     public Creature getActiveCreature(){
         return inventory.getActiveCreature();
     }
+    
+    
+
+    
 
     
 

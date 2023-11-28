@@ -1,6 +1,6 @@
 package Controller;
 
-import java.util.Random;
+
 
 import Model.MainModel;
 import View.View;
@@ -8,64 +8,59 @@ import View.View;
 public class AreaTwoController implements BackToMainMenu {
     private final View view;
     private final MainModel model;
-    private int horizontal;
-    private int vertical;
+ 
 
     public AreaTwoController(View view, MainModel model) {
         this.view = view;
         this.model = model;
-        this.horizontal = 50;
-        this.vertical = 50;
+     
 
         view.getAreaTwoView().setActionListenerDown(e ->{
 
          moveDown();
-            Random random = new Random();
-            if(random.nextInt(1,100) <=40){
-                closePanel();
-                openBattlePhase();
-                view.getBattleScreenView().setEnemyPokemon();
-            }
+         if(model.getAreaTwo().youHaveEncounteredACreature()){
+            view.getBattleScreenView().setEnemyPokemon(model.getAreaTwo().encounterEnemyCreature());
+            openBattlePhase();
+         }
+            
         });
         view.getAreaTwoView().setActionListenerUp(e ->{
 
          moveUp();
-            Random random = new Random();
-            if(random.nextInt(1,100) <=40){
-                closePanel();
-                openBattlePhase();
-                view.getBattleScreenView().setEnemyPokemon();
-            }
+    
+         if(model.getAreaTwo().youHaveEncounteredACreature()){
+            view.getBattleScreenView().setEnemyPokemon(model.getAreaTwo().encounterEnemyCreature());
+            openBattlePhase();
+         }
+            
         });
         
         view.getAreaTwoView().setActionListenerRight(e ->{
 
          moveRight();
-            Random random = new Random();
-            if(random.nextInt(1,100) <=40){
-                closePanel();
-                openBattlePhase();
-                view.getBattleScreenView().setEnemyPokemon();
-            }
+         if(model.getAreaTwo().youHaveEncounteredACreature()){
+            view.getBattleScreenView().setEnemyPokemon(model.getAreaTwo().encounterEnemyCreature());
+            openBattlePhase();
+         }
+            
         });
         view.getAreaTwoView().setActionListenerLeft(e ->{
 
          moveLeft();
-            Random random = new Random();
-            if(random.nextInt(1,100) <=40){
-                closePanel();
-                openBattlePhase();
-                view.getBattleScreenView().setEnemyPokemon();
-            }
+         if(model.getAreaTwo().youHaveEncounteredACreature()){
+            view.getBattleScreenView().setEnemyPokemon(model.getAreaTwo().encounterEnemyCreature());
+            openBattlePhase();
+         }
+           
         });
         
       
         view.getAreaTwoView().setActionListenerExit(e -> {
             openMainMenu();
             closePanel();
-            horizontal = 50;
-            vertical = 50;
-            view.getAreaTwoView().setBoundsPlayer(50, 50);
+            model.getAreaTwo().resetHorizontal();
+            model.getAreaTwo().resetVertical();
+            view.getAreaTwoView().setBoundsPlayer(100, 100);
 
          });
     }
@@ -77,23 +72,23 @@ public class AreaTwoController implements BackToMainMenu {
     }
 
     public void moveRight() {
-        horizontal += 100;
-        view.getAreaTwoView().setBoundsPlayer(horizontal, vertical);
+        model.getAreaTwo().moveRight();
+        view.getAreaTwoView().setBoundsPlayer(model.getAreaTwo().getHorizontal(), model.getAreaTwo().getVertical());
     }
 
     public void moveLeft() {
-        horizontal -= 100;
-        view.getAreaTwoView().setBoundsPlayer(horizontal, vertical);
+        model.getAreaTwo().moveLeft();
+        view.getAreaTwoView().setBoundsPlayer(model.getAreaTwo().getHorizontal(), model.getAreaTwo().getVertical());
     }
 
     public void moveUp() {
-        vertical -= 100;
-        view.getAreaTwoView().setBoundsPlayer(horizontal, vertical);
+        model.getAreaTwo().moveUp();
+        view.getAreaTwoView().setBoundsPlayer(model.getAreaTwo().getHorizontal(), model.getAreaTwo().getVertical());
     }
 
     public void moveDown() {
-        vertical += 100;
-        view.getAreaTwoView().setBoundsPlayer(horizontal, vertical);
+        model.getAreaTwo().moveDown();
+       view.getAreaTwoView().setBoundsPlayer(model.getAreaTwo().getHorizontal(), model.getAreaTwo().getVertical());
     }
 
     @Override
