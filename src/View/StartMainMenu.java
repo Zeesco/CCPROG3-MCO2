@@ -1,6 +1,7 @@
 package View;
 
 
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -25,7 +26,7 @@ public class StartMainMenu extends JFrame{
     public StartMainMenu(){
         super();
         pPanel = new JPanel(null);
-        pPicture = new ImageIcon("/Users/yuanbutiong/Desktop/MCO2/src/View/BackgroundInterfaces/StartMainMenu.png");
+        pPicture = new ImageIcon("src/images/StartMainMenu.png");
         
 
 

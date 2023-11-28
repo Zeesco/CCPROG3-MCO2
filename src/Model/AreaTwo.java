@@ -5,9 +5,11 @@ import java.util.Random;
 public class AreaTwo extends AreaOne{
     
     private int vertical;
+    private int maximumStepsVertical;
     public AreaTwo(int horizontal,int vertical) {
         super(horizontal);
         this.vertical = vertical;
+        this.maximumStepsVertical = 5;
     }
 
 
@@ -66,12 +68,32 @@ public class AreaTwo extends AreaOne{
     }
 
 
-    public void moveUp(){
-        vertical-=100;
+    public void moveUp() {
+        System.out.println("steps vertical" + getMaximumStepsVertical());
+        if (maximumStepsVertical > 1) {
+            maximumStepsVertical--;
+            vertical -= 100;
+        } else {
+            System.out.println("Cant move up");
+        }
+    }
+    
+    public void moveDown() {
+        System.out.println("steps vertical" + getMaximumStepsVertical());
+        if (maximumStepsVertical < 5) {
+            maximumStepsVertical++;
+            vertical += 100;
+        } else {
+            System.out.println("Cant move down");
+        }
     }
 
-    public void moveDown(){
-        vertical+=100;
+    public void resetVerticalSteps(){
+        this.maximumStepsVertical = 5;
+    }   
+
+    public int getMaximumStepsVertical() {
+        return maximumStepsVertical;
     }
 
     public int getVertical() {

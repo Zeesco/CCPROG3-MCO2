@@ -30,11 +30,11 @@ public class AreaOneController implements BackToMainMenu {
 
          moveLeft();
             if(model.getAreaOne().getMaximumStepsHorizontal()<5 && model.getAreaOne().getMaximumStepsHorizontal()>1){
-            //     if(model.getAreaOne().youHaveEncounteredACreature()){
-            //      closePanel();
-            //      openBattlePhase();
-            //      view.getBattleScreenView().setEnemyPokemon(model.getAreaOne().encounterEnemyCreature());
-            //  }
+                if(model.getAreaOne().youHaveEncounteredACreature()){
+                 closePanel();
+                 openBattlePhase();
+                 view.getBattleScreenView().setEnemyPokemon(model.getAreaOne().encounterEnemyCreature());
+             }
             }
         });
         
@@ -43,6 +43,7 @@ public class AreaOneController implements BackToMainMenu {
             closePanel();
             model.getAreaOne().resetHorizontal();
             model.getAreaOne().resetSteps();
+            
             view.getAreaOneView().setBoundsPlayer(50);
 
          });

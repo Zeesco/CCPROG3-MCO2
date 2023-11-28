@@ -53,6 +53,8 @@ public class AreaThreeController implements BackToMainMenu{
             closePanel();
             model.getAreaThree().resetHorizontal();
             model.getAreaThree().resetVertical();
+            model.getAreaTwo().resetSteps();
+            model.getAreaTwo().resetVerticalSteps();
             view.getAreaTwoView().setBoundsPlayer(50, 50);
 
          });

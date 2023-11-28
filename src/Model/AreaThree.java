@@ -75,28 +75,40 @@ public class AreaThree extends AreaOne{
 
 
 
-    public void moveUp(){
-        if(maximumStepsVertical < 5){
-        maximumStepsVertical--;
-        vertical-=100;
-        }
+public void moveUp(){
+    if(maximumStepsVertical > 5){
+    maximumStepsVertical++;
+    vertical-=100;
+    }else{
+        System.out.println("Cant move up");
     }
+}
 
-    public void moveDown(){
-        if(maximumStepsVertical > 1){
-            maximumStepsVertical++;
-            vertical+=100;
-        }
-        
+public void moveDown(){
+    if(maximumStepsVertical > 1){
+        maximumStepsVertical--;
+        vertical+=100;
+    }else{
+        System.out.println("Cant move down");
     }
+}
+    
 
     public void resetVertical(){
         this.vertical = 100;
     }
+
+    public void resetVerticalSteps(){
+        this.maximumStepsVertical = 5;
+    }   
     
 
     public int getVertical() {
         return vertical;
+    }
+
+    public int getMaximumStepsVertical() {
+        return maximumStepsVertical;
     }
 
    
