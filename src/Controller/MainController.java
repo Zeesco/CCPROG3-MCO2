@@ -20,13 +20,12 @@ public class MainController implements PanelBehavior{
         chosenCreatureModel = new ChosenCreatureController(model,view);
         new MainMenuController(view,model);
         new InventoryController(view,chosenCreatureModel.getModel());
-        new ExploreAnAreaController(view);
+        new ExploreAnAreaController(view,model);
         new EvolveCreatureController(view, model);
         new AreaOneController(view, model);
         new AreaTwoController(view, model);
         new AreaThreeController(view, model);
-        
-
+        new BattlePhaseController(view, model);
         
        
         

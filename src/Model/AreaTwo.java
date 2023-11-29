@@ -17,7 +17,7 @@ public class AreaTwo extends AreaOne{
 
     @Override
     public Creature encounterEnemyCreature(){
-        int chooseLevel = new Random().nextInt(1,9) ;
+        int chooseLevel = new Random().nextInt(1,2) ;
         int choosePokemon = new Random().nextInt(1,9) ;
 
         if(chooseLevel==2){

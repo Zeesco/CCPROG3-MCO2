@@ -1,6 +1,6 @@
 package Model;
 
-import java.util.Random;
+
 
 public class Player {
     private final Inventory inventory;

@@ -2,6 +2,7 @@ package Controller;
 
 
 
+import Model.Creature;
 import Model.MainModel;
 import View.View;
 
@@ -22,7 +23,7 @@ public class AreaOneController implements BackToMainMenu {
                 if(model.getAreaOne().youHaveEncounteredACreature()){
                  closePanel();
                  openBattlePhase();
-                 view.getBattleScreenView().setEnemyPokemon(model.getAreaOne().encounterEnemyCreature());
+                 
              }
             }
         });
@@ -47,6 +48,12 @@ public class AreaOneController implements BackToMainMenu {
             view.getAreaOneView().setBoundsPlayer(110);
 
          });
+    }
+
+    public Creature generateEnemyCreature(){
+        Creature enemyCreature = model.getAreaOne().encounterEnemyCreature();
+        view.getBattleScreenView().setEnemyPokemon(enemyCreature);
+        return enemyCreature;
     }
 
     public void openBattlePhase(){

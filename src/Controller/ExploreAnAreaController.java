@@ -1,5 +1,6 @@
 package Controller;
 
+
 import Model.MainModel;
 import View.View;
 
@@ -7,15 +8,16 @@ public class ExploreAnAreaController implements BackToMainMenu {
     private final View view;
    
     
-    public ExploreAnAreaController(View view){
+    public ExploreAnAreaController(View view, MainModel model){
         this.view = view;
        
-
+    
         view.getExploreAnAreaView().setActionListenerAreaOne(e->{
             openAreaOne();
             closePanel();
 
         });
+        
 
          view.getExploreAnAreaView().setActionListenerAreaTwo(e->{
             openAreaTwo();

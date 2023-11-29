@@ -23,9 +23,16 @@ public  class Creature {
        }
 
        public Creature(String name, String type, char family, int level){
+        Random random = new Random();
          this.name = name;
          this.level = level;
+         this.type = type;
+         this.level = level;
+         this.health = 200;
+         
        }
+
+   
 
 
        public void setFamily(char family) {
@@ -61,24 +68,32 @@ public  class Creature {
 
        public void attackCreature(Creature enemyCreature){
         Random random = new Random();
-        damage = random.nextInt(1,10) * this.level;
+        this.damage = random.nextInt(1,10) * this.level;
+        System.out.println("enemyCreature: " + enemyCreature.getName());
+        System.out.println("enemyCreature.getType(): " + enemyCreature.getType());
+        
         if(enemyCreature.getType().equals("FIRE") && this.type.equals("WATER")){
            
-           enemyCreature.receiveDamage(damage * 1.5);
+           enemyCreature.receiveDamage(this.damage * 1.5);
         
         }else if(enemyCreature.getType().equals("LEAF") && this.type.equals("FIRE")){
-            enemyCreature.receiveDamage(damage* 1.5);
+            enemyCreature.receiveDamage(this.damage* 1.5);
            
         }else if(enemyCreature.getType().equals("WATER") && this.type.equals("GRASS")){
-            enemyCreature.receiveDamage(damage* 1.5);
+            enemyCreature.receiveDamage(this.damage* 1.5);
             
         }
        }
       
 
-       public void receiveDamage(double damage){
-            this.health-=damage;
-       }
+       public void receiveDamage(double damage) {
+        this.health -= damage;
+        
+       
+        if (this.health < 0) {
+            this.health = 0;
+        }
+    }
    
    
     

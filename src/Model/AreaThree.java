@@ -21,6 +21,7 @@ public class AreaThree extends AreaOne{
         int chooseLevel = new Random().nextInt(1,2);
         int choosePokemon = new Random().nextInt(1,9);
         
+        
         if(chooseLevel == 1){
         
         switch (choosePokemon) {

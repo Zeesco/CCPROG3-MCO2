@@ -21,6 +21,7 @@ public class AreaTwoController implements BackToMainMenu {
          if( model.getAreaTwo().getMaximumStepsVertical() > 0 && model.getAreaTwo().getMaximumStepsVertical() < 2 ){
          if(model.getAreaTwo().youHaveEncounteredACreature()){
             view.getBattleScreenView().setEnemyPokemon(model.getAreaTwo().encounterEnemyCreature());
+            closePanel();
             openBattlePhase();
          }
         }
@@ -33,6 +34,7 @@ public class AreaTwoController implements BackToMainMenu {
          if(model.getAreaTwo().getMaximumStepsVertical() > 0 && model.getAreaTwo().getMaximumStepsVertical() < 2  ){
          if(model.getAreaTwo().youHaveEncounteredACreature()){
             view.getBattleScreenView().setEnemyPokemon(model.getAreaTwo().encounterEnemyCreature());
+            closePanel();
             openBattlePhase();
          }
         }
@@ -45,6 +47,7 @@ public class AreaTwoController implements BackToMainMenu {
             if (model.getAreaTwo().getMaximumStepsHorizontal() > 0 && model.getAreaTwo().getMaximumStepsHorizontal() < 2) {
                 if (model.getAreaTwo().youHaveEncounteredACreature()) {
                     view.getBattleScreenView().setEnemyPokemon(model.getAreaTwo().encounterEnemyCreature());
+                    closePanel();
                     openBattlePhase();
                 }
             }
@@ -56,6 +59,7 @@ public class AreaTwoController implements BackToMainMenu {
             if (model.getAreaTwo().getMaximumStepsHorizontal() > 0 && model.getAreaTwo().getMaximumStepsHorizontal() < 2) {
                 if (model.getAreaTwo().youHaveEncounteredACreature()) {
                     view.getBattleScreenView().setEnemyPokemon(model.getAreaTwo().encounterEnemyCreature());
+                    closePanel();
                     openBattlePhase();
                 }
             }
